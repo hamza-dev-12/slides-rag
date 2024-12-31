@@ -25,10 +25,18 @@ class QdrantManager():
         - Creates the collection if it does not exist.
         - Sets up the embedding model and language model.
         """
+        qdrant_host = os.getenv("QDRANT_HOST", "localhost")
+        qdrant_port = int(os.getenv("QDRANT_PORT", "6333"))
+
         client = qdrant_client.QdrantClient(
-            host="localhost",
-            port=6333
+            host = qdrant_host,
+            port = qdrant_port
         )
+
+        # client = qdrant_client.QdrantClient(
+        #     host="localhost",
+        #     port=6333
+        # )
 
         self.collection_name = 'slides-rag'
 
