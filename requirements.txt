@@ -1,0 +1,10 @@
+llama-index
+llama-index-embeddings-huggingface
+llama-index-vector-stores-qdrant 
+llama-index-llms-gemini
+python-dotenv
+fastapi
+uvicorn
+python-multipart
+pymupdf
+loguru

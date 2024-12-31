@@ -1,0 +1,7 @@
+__pycache__
+reference/
+data/
+qdrant_data/
+qdrant_storage/
+app/
+.env

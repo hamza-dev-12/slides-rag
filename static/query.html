@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Documents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        label, input, h2, pre {
+            width: 100%;
+            margin: 10px 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        a {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        .result-container {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        .result-container pre {
+            white-space: pre-wrap; /* Wrap text instead of forcing horizontal scroll */
+            word-wrap: break-word;
+            font-family: Consolas, monospace;
+            color: #333;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Query Documents</h1>
+    <form action="/query" method="post">
+        <label for="user_query">Enter your query:</label>
+        <input type="text" id="user_query" name="user_query" required>
+        <input type="submit" value="Submit Query">
+    </form>
+    {% if user_query %}
+        <div class="result-container">
+            <h2>Query: {{ user_query }}</h2>
+            <h3>Result:</h3>
+            <pre>{{ result|safe }}</pre>
+        </div>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
